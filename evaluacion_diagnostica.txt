@@ -1,0 +1,72 @@
+Proc:Ingreso de datos de automoviles con sus precio incluido impuestos 
+	origen,X[10](A-Z,a-z,�,ll,�,BS)
+	marca,X[15](A-Z,a-z,0-9,�,ll,�,BS)
+	costo,f(100-N)
+	numero_autos, i(0-N)
+	costo_final_auto,f(0-N)
+	costo_imp, f(0,N)
+	imp_generados, f(0,N)
+	costo_imp <- 0
+	imp_generados<- 0
+	//Solicitar el numero de autos
+	Escriba "Ingrese el numero de automoviles"
+	Lea numero_autos
+	c<-1
+	Mientras que numero_autos >= c haga 
+	//Ingreso de datos de autos importado se debe pedir datos de ; marca, origen y cost
+	Escriba "Ingrese el lugar de Origen del automovil Argentina / Chile / Colombia / Otro " + numero_autos
+	Lea origen
+	Escriba"Ingrese la marca del automovil" + numero_autos
+	Lea marca
+	Escriba "Ingrese el costo del automovil" + numero_autos
+	Lea costo 
+	// Si es Argentina el impuesto es del 20%
+		Si origen == "Argentina" entonces
+			costo_imp<- costo * 0.20
+			costo_final_auto<- costo_imp + costo
+			imp_generados <- costo_imp
+			Escriba "El costo del automovil " + numero_autos + "de origen " + origen+ "de marca " + marca + "es " + costo_final_auto
+		Fin_Si
+		//Si es Colombia el impuesto es del 25%
+		imp_generados <- imp_generados + imp_generados
+		costoimp <- 0
+		costo_final_auto <- 0
+		Si origen == "Colombia" entonces 
+			costo_imp <- costo *0.25
+			costo_final_auto <- costo_imp + costo
+			imp_generados <- imp_generados + costo_imp
+			Escriba "El costo del automovil " + numero_autos + "de origen " + origen+ "de marca " + marca + "es " + costo_final_auto
+		Fin_Si
+		imp_generados <- imp_generados + imp_generados
+		costoimp <- 0
+		costo_final_auto <- 0
+		// Si es Chile el impuesto es del 30%
+		Si origen == "Chile" entonces 
+			costo_imp <- costo *0.30
+			costo_final_auto <- costo_imp+costo
+			imp_generados <- imp_generados + costo_imp
+			Escriba "El costo del automovil " + numero_autos + "de origen " + origen+ "de marca " + marca + "es " + costo_final_auto
+		Fin_Si
+		imp_generados <- imp_generados + imp_generados
+		costoimp <- 0
+		costo_final_auto <- 0
+		//Cualquier otro pa�s, el impuesto es de 40%
+		Si origen == "Otro " entionces 
+			costo_imp <- costo*0.40
+			costo_final_auto <- costo_imp+costo
+			imp_generados <- imp_generados + costo_imp
+			Escriba "El costo del automovil " + numero_autos + "de origen " + origen+ "de marca " + marca + "es " + costo_final_auto
+			imp_generados <- imp_generados + imp_generados
+		Fin_Si
+		c <- c +1
+	Fin_Mientras que 
+		//Imprimir el total de autos importados.
+	Escriba "El total de autos importados es " + numero_autos
+		//Imprimir el total de impuestos generados.
+	Escriba "El total de impuestos generados es "+ imp_generados
+
+	Escriba "Se ha generado el costo de los automoviles basandose en los impuestos de cada paisSi es Argentina el impuesto es del 20%"
+	Escriba"- Si es Colombia el impuesto es del 25%"
+	Escriba"- Si es Chile el impuesto es del 30%"
+	Escriba"- Cualquier otro pa�s, el impuesto es de 40% "
+Fin_Proc
